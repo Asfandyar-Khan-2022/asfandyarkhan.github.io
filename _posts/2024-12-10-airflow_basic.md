@@ -1,6 +1,6 @@
 ---
 title: Airflow
-date: 2024-12-010 8:00:00 -500
+date: 2024-12-10 8:00:00 -500
 categories: [cloud, airflow]
 tags: [basics] # TAG names should always be lowercase
 ---
