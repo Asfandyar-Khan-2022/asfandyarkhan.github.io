@@ -1,0 +1,67 @@
+---
+title: Airflow
+date: 2024-12-010 8:00:00 -500
+categories: [cloud, airflow]
+tags: [basics] # TAG names should always be lowercase
+---
+# <center>Airflow: Basics</center>
+
+### Airflow <span class="rainbow-text">core components</span>
+
+1. The first component of Airflow is the <span class="rainbow-text">web server</span>. Which hosts the Airflow application. It allows the user to monitor task execution, view the status of DAGs, access the logs and any other operational information.
+
+2. To provide this information the computer needs to interact with the <span class="rainbow-text">metadata database</span>. It contains all the information such as the task instance, DAG status and user of the DAG instance.
+
+3. The <span class="rainbow-text">scheduler</span> determines which tasks to execute and when. 
+
+4. The <span class="rainbow-text">executor</span> determines how and on which system to execute the task. Maybe the user wants to execute the task using kubernetes cluster. Then you have a dedicated <span class="rainbow-text">executor</span> for that.
+5. To ensure that the tasks run in the correct order as specified in the pipeline. You have a <span class="rainbow-text">queue</span>. This can be internal or external.
+6. The <span class="rainbow-text">workers</span> take the task out of the queue in order to execute them
+
+![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/airflow_core_components.png?raw=true){: .shadow .rborder}
+
+<div class="logo-container">
+        <img src="https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/airflow.png?raw=tru" alt="Airflow Logo" class="spinning-logo">
+    </div>
+
+<style>
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12vh;
+  }
+
+  .spinning-logo {
+      width: 100px;
+      height: 100px;
+      animation: spin 4s linear infinite;
+  }
+
+  @keyframes spin {
+      from {
+          transform: rotate(0deg);
+      }
+      to {
+          transform: rotate(360deg);
+      }
+  }
+
+  .rborder {
+    border-radius:5px;
+  }
+
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .rainbow-text {
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: rainbow 6s ease infinite;
+  }
+</style>
