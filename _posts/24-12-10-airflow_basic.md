@@ -20,6 +20,15 @@ tags: [basics] # TAG names should always be lowercase
 
 ![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/airflow_core_components.png?raw=true){: .shadow .rborder}
 
+---
+### DAG <span class="rainbow-text">setup</span>
+```python
+from airflow import dag
+from airflow.operators.python import PythonOperator
+from airflow.operators.bash import BashOperator
+```
+
+
 <div class="logo-container">
         <img src="https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/airflow.png?raw=tru" alt="Airflow Logo" class="spinning-logo">
     </div>
