@@ -12,6 +12,23 @@ As soon as the scheduler starts scheduling the data pipeline, you end up with a 
 
 ![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/dag_run.png?raw=true){: .shadow .rborder}
 
+### Properites of DAG
+state = Final DAG Run's state
+dag id = DAG ID of the DAG
+logical date = Data interval start
+start date = Start timestamp
+end date = End timestamp
+duration = Time to complete the DAG Run
+
+> Note: The start date is the actual timestamp when the DAG run begins execution, while the logical date (or execution date) represents the scheduled time and data interval for the DAG run.
+
+### How DAGs are scheduled
+The two parameters to remember are the <span class="rainbow-text">start_date</span> and the <span class="rainbow-text">schedule_interval</span>. The start_date is the date at which the DAG starts being scheduled. The schedule_interval determined how frequently the DAG is triggered. 
+
+The way the scheduling happens is shown in the example below. The start date is at 10:00. Which means that the DAG starts at that time. Though the task is not triggered until the first scheduled interval. So the task is actually triggered at 10:10. This trend continues for all consecutive DAGs as well.
+
+![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/dag_schedule_run.png?raw=true){: .shadow .rborder}
+
 <div class="logo-container">
         <img src="https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/airflow.png?raw=tru" alt="Airflow Logo" class="spinning-logo">
     </div>
