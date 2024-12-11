@@ -39,6 +39,25 @@ Backfill is when for example the DAG run is paused in the middle and a second DA
 
 ![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/dag_backfill.png?raw=true){: .shadow .rborder}
 
+### The schedule_interval
+
+The schedule interval determines how often a DAG is triggered. To trigger the DAG daily then the below code would suffice.
+
+```python
+with DAG('my_dag', start_date=datetime(2022, 1, 1),
+        schedule_interval='@daily') as dag:
+```
+> Note: The crone expression will trigger only within the specific date. So if you have a schedule_interval of 3 days. Since all months don't have exactly 30 days. Then it will create an issue where it will fill in by running for less days. To resolve this and have the days rollover into the next month as well, timedelta object is used.
+
+![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/crone_expression.png?raw=true){: .shadow .rborder}
+
+![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/dag_timedelta.png?raw=true){: .shadow .rborder}
+
+```python
+with DAG('my_dag', start_date=datetime(2022, 1, 1),
+        schedule_interval=timedelta(days=3)) as dag:
+```
+
 <div class="logo-container">
         <img src="https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/airflow.png?raw=tru" alt="Airflow Logo" class="spinning-logo">
     </div>
