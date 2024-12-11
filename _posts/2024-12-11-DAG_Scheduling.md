@@ -29,6 +29,16 @@ The way the scheduling happens is shown in the example below. The start date is 
 
 ![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/dag_schedule_run.png?raw=true){: .shadow .rborder}
 
+![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/dag_trigger.png?raw=true){: .shadow .rborder}
+
+### The start_date
+
+The start_date is the date when your DAG starts being scheduled. The real definition for it is that the start_date is the timestamp from which the scheduler will attempt to <span class="rainbow-text">backfill</span>.
+
+Backfill is when for example the DAG run is paused in the middle and a second DAG run is created. backfill means that instead of starting from the beginning the DAG will run from the last point it was paused. 
+
+![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/dag_backfill.png?raw=true){: .shadow .rborder}
+
 <div class="logo-container">
         <img src="https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/airflow.png?raw=tru" alt="Airflow Logo" class="spinning-logo">
     </div>
