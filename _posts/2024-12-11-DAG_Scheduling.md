@@ -35,7 +35,7 @@ The way the scheduling happens is shown in the example below. The start date is 
 
 The start_date is the date when your DAG starts being scheduled. The real definition for it is that the start_date is the timestamp from which the scheduler will attempt to <span class="rainbow-text">backfill</span>.
 
-Backfill is when for example the DAG run is paused in the middle and a second DAG run is created. backfill means that instead of starting from the beginning the DAG will run from the last point it was paused. 
+ Backfill : Manually triggered to process historical data for specific past intervals. 
 
 ![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/dag_backfill.png?raw=true){: .shadow .rborder}
 
@@ -57,6 +57,15 @@ with DAG('my_dag', start_date=datetime(2022, 1, 1),
 with DAG('my_dag', start_date=datetime(2022, 1, 1),
         schedule_interval=timedelta(days=3)) as dag:
 ```
+### The catchup parameter.
+Catchup: Automatically runs all missed DAG runs from the start date up to the current date when the DAG is resumed or the scheduler is back online. It can be enabled as shown below.
+
+```python
+with DAG('my_dag', start_date=datetime(2022, 1, 1),
+        schedule_interval='@daily' catchup=True)as dag:
+```
+
+![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/dag_catchup.png?raw=true){: .shadow .rborder}
 
 <div class="logo-container">
         <img src="https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/airflow.png?raw=tru" alt="Airflow Logo" class="spinning-logo">
@@ -67,7 +76,7 @@ with DAG('my_dag', start_date=datetime(2022, 1, 1),
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 12vh;
+    height: 18vh;
   }
 
   .spinning-logo {
