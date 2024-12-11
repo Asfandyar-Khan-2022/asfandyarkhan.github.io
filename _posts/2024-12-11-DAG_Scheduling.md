@@ -22,6 +22,8 @@ duration = Time to complete the DAG Run
 
 > Note: The start date is the actual timestamp when the DAG run begins execution, while the logical date (or execution date) represents the scheduled time and data interval for the DAG run.
 
+---
+
 ### How DAGs are scheduled
 The two parameters to remember are the <span class="rainbow-text">start_date</span> and the <span class="rainbow-text">schedule_interval</span>. The start_date is the date at which the DAG starts being scheduled. The schedule_interval determined how frequently the DAG is triggered. 
 
@@ -31,6 +33,8 @@ The way the scheduling happens is shown in the example below. The start date is 
 
 ![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/dag_trigger.png?raw=true){: .shadow .rborder}
 
+---
+
 ### The start_date
 
 The start_date is the date when your DAG starts being scheduled. The real definition for it is that the start_date is the timestamp from which the scheduler will attempt to <span class="rainbow-text">backfill</span>.
@@ -38,6 +42,8 @@ The start_date is the date when your DAG starts being scheduled. The real defini
  Backfill : Manually triggered to process historical data for specific past intervals. 
 
 ![image](https://github.com/Asfandyar-Khan-2022/asfandyarkhan.github.io/blob/main/images/dag_backfill.png?raw=true){: .shadow .rborder}
+
+---
 
 ### The schedule_interval
 
@@ -57,6 +63,8 @@ with DAG('my_dag', start_date=datetime(2022, 1, 1),
 with DAG('my_dag', start_date=datetime(2022, 1, 1),
         schedule_interval=timedelta(days=3)) as dag:
 ```
+---
+
 ### The catchup parameter.
 Catchup: Automatically runs all missed DAG runs from the start date up to the current date when the DAG is resumed or the scheduler is back online. It can be enabled as shown below.
 
