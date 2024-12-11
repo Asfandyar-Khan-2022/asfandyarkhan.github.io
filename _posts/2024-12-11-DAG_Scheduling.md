@@ -1,6 +1,6 @@
 ---
 title: DAG Scheduling
-date: 2024-12-11 08:00:00 -500
+date: 2024-12-10 12:00:00 -500
 categories: [cloud, airflow]
 tags: [dag] # TAG names should always be lowercase
 ---
